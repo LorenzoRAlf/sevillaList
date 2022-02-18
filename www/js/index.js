@@ -25,5 +25,18 @@ function onDeviceReady() {
     // Cordova is now initialized. Have fun!
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+    //document.getElementById('deviceready').classList.add('ready');
+    $(document).ready(function(){
+        $("#pageButton").append("<button id='deleteButton'>Del</button>");
+        init();	
+    });
+    function init(){
+        $("#addButton").click(function(){
+            let newElement = $("#newTask").val();
+            $("#taskList").append("<li><a type= 'pageButton' href='#'>"+newElement+"</a></li>");
+
+            $("#taskList").listview("refresh");
+        });
+    
+    };
 }
